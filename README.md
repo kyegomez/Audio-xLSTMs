@@ -11,3 +11,15 @@ This is a community based approach to an implementation mostly for practice. I w
 
 # License
 MIT
+
+
+# Citation
+```bibtex
+@article{xlstm,
+  title={xLSTM: Extended Long Short-Term Memory},
+  author={Beck, Maximilian and P{\"o}ppel, Korbinian and Spanring, Markus and Auer, Andreas and Prudnikova, Oleksandra and Kopp, Michael and Klambauer, G{\"u}nter and Brandstetter, Johannes and Hochreiter, Sepp},
+  journal={arXiv preprint arXiv:2405.04517},
+  year={2024}
+}
+
+```
