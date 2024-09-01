@@ -8,10 +8,27 @@ class AudioPatcher(nn.Module):
         self,
         patch_size: int,
     ):
+        """
+        AudioPatcher class represents a module that patches the input audio tensor.
+
+        Args:
+            patch_size (int): The size of each patch.
+
+        """
         super().__init__()
         self.patch_size = patch_size
 
     def forward(self, x: Tensor) -> Tensor:
+        """
+        Forward pass of the AudioPatcher module.
+
+        Args:
+            x (Tensor): The input audio tensor of shape (batch_size, sequence_length, num_features).
+
+        Returns:
+            Tensor: The patched audio tensor of shape (batch_size, num_patches, patch_size * num_features).
+
+        """
         b, s, d = x.shape
 
         num_patches = s // self.patch_size
