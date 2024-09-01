@@ -1,16 +1,12 @@
-from tokenizers import AddedToken
+from typing import Dict, List, Tuple, TypeVar
+
 import torch
 import torch.nn as nn
-
 from einops import rearrange
-
+from tokenizers import AddedToken
 from torch import Tensor
 from torch.utils.data import get_worker_info
-
-from transformers import AutoTokenizer
-from transformers import PreTrainedTokenizerBase
-
-from typing import Dict, List, Tuple, TypeVar
+from transformers import AutoTokenizer, PreTrainedTokenizerBase
 
 T = TypeVar("T")
 D = TypeVar("D")

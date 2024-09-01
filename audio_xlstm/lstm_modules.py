@@ -1,20 +1,13 @@
+from math import sqrt
+from typing import Tuple
+
 import torch
 import torch.nn as nn
-
-from math import sqrt
-from torch import exp
-from torch import tanh
-from torch import sigmoid
 from einops import einsum, rearrange
+from torch import Tensor, exp, sigmoid, tanh
+from torch.nn.functional import gelu, silu
 
-from torch import Tensor
-from typing import Tuple
-from torch.nn.functional import silu
-from torch.nn.functional import gelu
-
-from .utils import enlarge_as
-from .utils import BlockLinear
-from .utils import CausalConv1d
+from .utils import BlockLinear, CausalConv1d, enlarge_as
 
 
 class sLSTM(nn.Module):

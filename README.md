@@ -7,7 +7,10 @@
 This is a community based approach to an implementation mostly for practice. I will implement the model architecture as defined in the paper but will leave someone else to implement the training script! So please create a training script if you have the time and energy
 
 
-
+# Install
+```bash
+$ pip3 install -U audio-xlstm
+```
 
 # License
 MIT

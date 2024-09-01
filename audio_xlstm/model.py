@@ -153,7 +153,6 @@ class Spectra(nn.Module):
             d, self.heads, self.dim_head, self.p_factor
         )(first_path, hid)
         print(first_path_tmed.shape)
-        
 
         # Elementwise sum with both branches
         merged_paths = first_path_tmed * second_path_way_act
