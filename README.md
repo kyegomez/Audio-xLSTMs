@@ -15,6 +15,14 @@ $ pip3 install -U audio-xlstm
 # License
 MIT
 
+# Todo
+
+- [ ] Implement the flip module
+- [ ] Correctly leverage msltm module
+- [ ] Ensure model architecture is correct
+- [ ] Implement training script on whisper like data
+- [ ] Implement speech and audio recognition datasets
+
 
 # Citation
 ```bibtex

@@ -161,18 +161,15 @@ class Spectra(nn.Module):
 
         # First Pathway Mstm
         # FLIP before
-        hid = (
-            torch.zeros(first_path.shape),
-            torch.zeros(first_path.shape),
-            torch.zeros(first_path.shape),
-        )
-        first_path_tmed, _ = mLSTM(
-            d, self.heads, self.dim_head, self.p_factor
-        )(first_path, hid)
-        print(first_path_tmed.shape)
+
+        mlstm = mLSTM(d, self.heads, self.dim_head, self.p_factor)
+
+        hid = mlstm.init_hidden(b)
+
+        pred, hid = mlstm(first_path, hid)
 
         # Elementwise sum with both branches
-        merged_paths = first_path_tmed * second_path_way_act
+        merged_paths = pred * second_path_way_act
 
         # Projection
         merged_paths = nn.Linear(d, d)(merged_paths)
@@ -182,9 +179,18 @@ class Spectra(nn.Module):
         return merged_paths + residual
 
 
-# Example
-model = Spectra(dim=128, depth=1, heads=1, dim_head=64, patch_size=16)
+# # Example
+# model = Spectra(dim=128, depth=1, heads=1, dim_head=64, patch_size=16)
 
-input = torch.randn(1, 1024, 128)
-output = model(input)
-print(output.shape)
+# seq_len = 32
+# batch_size = 4
+
+# inp_dim = 16
+# head_dim = 8
+# head_num = 4
+
+# # Create a mock up input sequence
+# seq = torch.randn(seq_len, batch_size, inp_dim)
+
+# output = model(seq)
+# print(output.shape)
